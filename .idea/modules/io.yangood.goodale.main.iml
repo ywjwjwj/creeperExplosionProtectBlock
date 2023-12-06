@@ -7,7 +7,6 @@
           <platformType>PAPER</platformType>
           <platformType>ADVENTURE</platformType>
         </autoDetectTypes>
-        <projectReimportVersion>1</projectReimportVersion>
       </configuration>
     </facet>
   </component>
@@ -21,6 +20,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: cn.hutool:hutool-core:5.8.16" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: net.md-5:bungeecord-chat:1.20-R0.1-deprecated+build.14" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.guava:guava:32.1.2-jre" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: net.kyori:adventure-text-logger-slf4j:4.14.0" level="project" />

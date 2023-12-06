@@ -7,6 +7,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="io.yangood.goodale.main" />
+    <orderEntry type="library" name="Gradle: cn.hutool:hutool-core:5.8.16" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="goodale.main" />
 </module>
