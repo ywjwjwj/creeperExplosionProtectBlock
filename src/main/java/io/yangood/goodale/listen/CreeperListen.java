@@ -7,11 +7,8 @@ import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @ClassName: CreeperListen
