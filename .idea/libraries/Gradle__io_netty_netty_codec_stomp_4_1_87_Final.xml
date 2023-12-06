@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.netty:netty-codec-stomp:4.1.87.Final" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.netty" artifactId="netty-codec-stomp" version="4.1.87.Final" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-stomp/4.1.87.Final/baf9f9840d37295a9a5ae69781f0e6289bfb62cd/netty-codec-stomp-4.1.87.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-stomp/4.1.87.Final/f1dd8083bcf73c04426495bff91eb332b4b59706/netty-codec-stomp-4.1.87.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

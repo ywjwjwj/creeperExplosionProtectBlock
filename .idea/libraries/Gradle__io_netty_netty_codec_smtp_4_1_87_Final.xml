@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.netty:netty-codec-smtp:4.1.87.Final" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.netty" artifactId="netty-codec-smtp" version="4.1.87.Final" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-smtp/4.1.87.Final/66fd1cde5df608416edc7add13f0b771b8a3c386/netty-codec-smtp-4.1.87.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-smtp/4.1.87.Final/3899c84bd4ba3080d6af1ba774f3a9ec8370e8e0/netty-codec-smtp-4.1.87.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

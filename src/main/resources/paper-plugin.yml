@@ -6,4 +6,4 @@ prefix: [goodale]
 authors: [yangood]
 description: 我的第一个插件
 website: https://yangood.top
-
+loader: io.yangood.goodale.loader.GoodaleLoader

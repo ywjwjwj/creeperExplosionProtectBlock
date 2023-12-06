@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: xyz.jpenilla:reflection-remapper:0.1.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="xyz.jpenilla" artifactId="reflection-remapper" version="0.1.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/xyz.jpenilla/reflection-remapper/0.1.0/d77c4c33c95f4eb554f363f347edd56a8899f4f7/reflection-remapper-0.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/xyz.jpenilla/reflection-remapper/0.1.0/9bfeb5d71cf27e1aa2ddf9caf3d855abb9fa616a/reflection-remapper-0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

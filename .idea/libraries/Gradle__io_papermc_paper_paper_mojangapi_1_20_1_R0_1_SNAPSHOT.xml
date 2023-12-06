@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.papermc.paper:paper-mojangapi:1.20.1-R0.1-SNAPSHOT" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.papermc.paper" artifactId="paper-mojangapi" version="1.20.1-R0.1-SNAPSHOT" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.papermc.paper/paper-mojangapi/1.20.1-R0.1-SNAPSHOT/1bbd45ab6c4106cfcb9d77e35e93590e608b7d0f/paper-mojangapi-1.20.1-R0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.papermc.paper/paper-mojangapi/1.20.1-R0.1-SNAPSHOT/8ab492bb7d4c680f3ab2ce184d74a17edc815f49/paper-mojangapi-1.20.1-R0.1-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

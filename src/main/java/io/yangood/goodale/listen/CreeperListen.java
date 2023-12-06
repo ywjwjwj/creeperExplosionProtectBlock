@@ -1,14 +1,21 @@
 package io.yangood.goodale.listen;
 
-import cn.hutool.core.util.NumberUtil;
-import io.yangood.goodale.utils.Util;
-import java.util.List;
-import org.bukkit.entity.Creeper;
+import java.util.Collection;
+import java.util.Iterator;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.level.Level.ExplosionInteraction;
+import org.bukkit.craftbukkit.v1_20_R1.entity.CraftCreeper;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
+import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: CreeperListen
@@ -19,33 +26,52 @@ import org.bukkit.event.entity.ExplosionPrimeEvent;
  */
 public class CreeperListen implements Listener {
 
-    @EventHandler
-    public void onBoom(ExplosionPrimeEvent event) {
+    private static final Logger logger = LoggerFactory.getLogger(CreeperListen.class);
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onBoom(@NotNull ExplosionPrimeEvent event) {
         Entity entity = event.getEntity();
         // 如果是苦力怕爆炸
-        if (entity instanceof Creeper creeper) {
-            // 取消爆炸事件
+        if (entity instanceof CraftCreeper creeper) {
+            // 取消原始事件
             event.setCancelled(true);
 
-            // 如果苦力怕已死亡
-            if (creeper.isDead()) {
-                List<Entity> nearbyEntities = creeper.getNearbyEntities(event.getRadius(), event.getRadius(), event.getRadius());
-                for (Entity nearbyEntity : nearbyEntities) {
-                    if (nearbyEntity instanceof Player player) {
-                        // 计算距离
-                        double distance = Util.calcTowEntityDistance(player, creeper);
-                        // 计算伤害
-                        double damage = NumberUtil.round(NumberUtil.mul(6, NumberUtil.div(distance, 3)), 2).doubleValue();
-
-                        // 苦力怕造成伤害
-                        player.damage(damage, creeper);
-                        // 玩家被击退
-                        player.knockback(damage, creeper.getX(), creeper.getZ());
-                    }
-                }
-
-            }
+            // 调用自定义爆炸事件
+            Creeper handle = creeper.getHandle();
+            explodeCreeper(event, handle);
         }
+    }
+
+    public void explodeCreeper(ExplosionPrimeEvent event, Creeper creeper) {
+        creeper.die(creeper.damageSources().genericKill());
+        creeper.level().explode(creeper, creeper.getX(), creeper.getY(), creeper.getZ(), event.getRadius(), event.getFire(), ExplosionInteraction.NONE); // CraftBukkit
+        creeper.discard();
+        spawnLingeringCloud(creeper);
+    }
+
+    private void spawnLingeringCloud(Creeper creeper) {
+        Collection<MobEffectInstance> collection = creeper.getActiveEffects();
+
+        if (!collection.isEmpty() && !creeper.level().paperConfig().entities.behavior.disableCreeperLingeringEffect) { // Paper
+            AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(creeper.level(), creeper.getX(), creeper.getY(), creeper.getZ());
+
+            entityareaeffectcloud.setOwner(creeper); // CraftBukkit
+            entityareaeffectcloud.setRadius(2.5F);
+            entityareaeffectcloud.setRadiusOnUse(-0.5F);
+            entityareaeffectcloud.setWaitTime(10);
+            entityareaeffectcloud.setDuration(entityareaeffectcloud.getDuration() / 2);
+            entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float) entityareaeffectcloud.getDuration());
+            Iterator iterator = collection.iterator();
+
+            while (iterator.hasNext()) {
+                MobEffectInstance mobeffect = (MobEffectInstance) iterator.next();
+
+                entityareaeffectcloud.addEffect(new MobEffectInstance(mobeffect));
+            }
+
+            creeper.level().addFreshEntity(entityareaeffectcloud, CreatureSpawnEvent.SpawnReason.EXPLOSION); // CraftBukkit
+        }
+
     }
 
 }

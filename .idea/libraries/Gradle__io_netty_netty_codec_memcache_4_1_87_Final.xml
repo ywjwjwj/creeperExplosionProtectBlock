@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.netty:netty-codec-memcache:4.1.87.Final" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.netty" artifactId="netty-codec-memcache" version="4.1.87.Final" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-memcache/4.1.87.Final/db72313665d77fbe39a5b15cb8c42172759f756f/netty-codec-memcache-4.1.87.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-memcache/4.1.87.Final/5622ed0b3bdb7d177850089e47a96ee5032d715b/netty-codec-memcache-4.1.87.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

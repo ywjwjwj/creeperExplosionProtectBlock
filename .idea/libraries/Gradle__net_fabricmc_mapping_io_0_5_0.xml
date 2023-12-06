@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: net.fabricmc:mapping-io:0.5.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="net.fabricmc" artifactId="mapping-io" version="0.5.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.fabricmc/mapping-io/0.5.0/4dc6d61492be3e9695d1c4cb7cd33c0cc012085f/mapping-io-0.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.fabricmc/mapping-io/0.5.0/e82d4e4144bbf08f61814cd200c5d2b8b35d4e9d/mapping-io-0.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
