@@ -1,10 +1,10 @@
 package io.yangood.goodale.listen;
 
 import java.util.Collection;
-import java.util.Iterator;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Level.ExplosionInteraction;
 import org.bukkit.craftbukkit.v1_20_R1.entity.CraftCreeper;
 import org.bukkit.entity.Entity;
@@ -44,7 +44,9 @@ public class CreeperListen implements Listener {
 
     public void explodeCreeper(ExplosionPrimeEvent event, Creeper creeper) {
         creeper.die(creeper.damageSources().genericKill());
-        creeper.level().explode(creeper, creeper.getX(), creeper.getY(), creeper.getZ(), event.getRadius(), event.getFire(), ExplosionInteraction.NONE); // CraftBukkit
+        Level level = creeper.level();
+        level.explode(creeper, creeper.getX(), creeper.getY(), creeper.getZ(), event.getRadius(), event.getFire(),
+            ExplosionInteraction.NONE); // CraftBukkit
         creeper.discard();
         spawnLingeringCloud(creeper);
     }
@@ -52,8 +54,10 @@ public class CreeperListen implements Listener {
     private void spawnLingeringCloud(Creeper creeper) {
         Collection<MobEffectInstance> collection = creeper.getActiveEffects();
 
-        if (!collection.isEmpty() && !creeper.level().paperConfig().entities.behavior.disableCreeperLingeringEffect) { // Paper
-            AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(creeper.level(), creeper.getX(), creeper.getY(), creeper.getZ());
+        Level level = creeper.level();
+        if (!collection.isEmpty() && !level.paperConfig().entities.behavior.disableCreeperLingeringEffect) { // Paper
+            AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(creeper.level(), creeper.getX(), creeper.getY(),
+                creeper.getZ());
 
             entityareaeffectcloud.setOwner(creeper); // CraftBukkit
             entityareaeffectcloud.setRadius(2.5F);
@@ -61,17 +65,13 @@ public class CreeperListen implements Listener {
             entityareaeffectcloud.setWaitTime(10);
             entityareaeffectcloud.setDuration(entityareaeffectcloud.getDuration() / 2);
             entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float) entityareaeffectcloud.getDuration());
-            Iterator iterator = collection.iterator();
 
-            while (iterator.hasNext()) {
-                MobEffectInstance mobeffect = (MobEffectInstance) iterator.next();
-
-                entityareaeffectcloud.addEffect(new MobEffectInstance(mobeffect));
+            for (MobEffectInstance mobEffect : collection) {
+                entityareaeffectcloud.addEffect(new MobEffectInstance(mobEffect));
             }
 
-            creeper.level().addFreshEntity(entityareaeffectcloud, CreatureSpawnEvent.SpawnReason.EXPLOSION); // CraftBukkit
+            level.addFreshEntity(entityareaeffectcloud, CreatureSpawnEvent.SpawnReason.EXPLOSION); // CraftBukkit
         }
-
     }
 
 }

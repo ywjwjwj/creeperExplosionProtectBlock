@@ -1,6 +1,7 @@
 package io.yangood.goodale;
 
 import io.yangood.goodale.listen.CustomListen;
+import io.yangood.goodale.utils.Util;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,6 +10,7 @@ public final class Goodale extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Util.init(getServer());
         // Plugin startup logic
         getServer().sendMessage(
             Component.text("[Goodale]", TextColor.fromHexString("#36BE43"))

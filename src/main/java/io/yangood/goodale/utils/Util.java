@@ -1,5 +1,6 @@
 package io.yangood.goodale.utils;
 
+import org.bukkit.Server;
 import org.bukkit.entity.Entity;
 
 /**
@@ -10,6 +11,16 @@ import org.bukkit.entity.Entity;
  * @Version: 1.0
  */
 public class Util {
+
+    private static Server server;
+
+    public static void init(Server server) {
+        Util.server = server;
+    }
+
+    public static Server getServer() {
+        return server;
+    }
 
     /**
      * 2个单位间的距离
@@ -24,5 +35,4 @@ public class Util {
                 + (entity1.getZ() - entity2.getZ()) * (entity1.getZ() - entity2.getZ())
         );
     }
-
 }
