@@ -19,6 +19,10 @@ public class GoodaleLoader implements PluginLoader {
         // 通过路径 添加外部依赖
         //classpathBuilder.addLibrary(new JarLibrary(Path.of("dependency.jar")));
 
+        //loadHuTool();
+    }
+
+    private void loadHuTool() {
         // maven解析器 添加外部远程依赖
         //MavenLibraryResolver resolver = new MavenLibraryResolver();
         //resolver.addRepository(new RemoteRepository.Builder("hutool", "default", "https://repo1.maven.org/maven2/").build());

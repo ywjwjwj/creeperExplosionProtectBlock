@@ -35,7 +35,6 @@ public class CreeperListen implements Listener {
         if (entity instanceof CraftCreeper creeper) {
             // 取消原始事件
             event.setCancelled(true);
-
             // 调用自定义爆炸事件
             Creeper handle = creeper.getHandle();
             explodeCreeper(event, handle);

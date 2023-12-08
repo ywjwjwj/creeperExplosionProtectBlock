@@ -7,6 +7,7 @@ package io.yangood.goodale.mapping;
  * @Date: 2023/12/07
  * @Version: 1.0
  */
+@Deprecated
 public class ReMapperReflection {
     //private static final LevelProxy LEVEL_PROXY;
     //
@@ -21,7 +22,7 @@ public class ReMapperReflection {
     //    return LEVEL_PROXY;
     //}
     //
-    //@Proxies(Level.class)
+    //@Proxies(Creeper.class)
     //public interface LevelProxy {
     //
     //    @MethodName("explode")
