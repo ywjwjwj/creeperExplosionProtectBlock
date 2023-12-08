@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'io.yangood'
-version = '1.0.0'
+version = '1.20.1'
 
 repositories {
     mavenCentral()
