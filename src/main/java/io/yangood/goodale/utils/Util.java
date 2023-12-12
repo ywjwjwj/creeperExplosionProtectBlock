@@ -1,5 +1,6 @@
 package io.yangood.goodale.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.entity.Entity;
 
@@ -12,7 +13,9 @@ import org.bukkit.entity.Entity;
  */
 public class Util {
 
+    private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
     private static Server server;
+
 
     public static void init(Server server) {
         Util.server = server;
@@ -35,4 +38,9 @@ public class Util {
                 + (entity1.getZ() - entity2.getZ()) * (entity1.getZ() - entity2.getZ())
         );
     }
+
+    public static String cbClass(String clazz) {
+        return CRAFTBUKKIT_PACKAGE + "." + clazz;
+    }
+
 }

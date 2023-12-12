@@ -36,7 +36,6 @@ public class CreeperListen implements Listener {
             // 取消原始事件
             event.setCancelled(true);
             // 调用自定义爆炸事件
-            //net.minecraft.world.entity.monster.Creeper handle = creeper.getHandle();
             Creeper handle = creeper.getHandle();
             explodeCreeper(event, handle);
         }
