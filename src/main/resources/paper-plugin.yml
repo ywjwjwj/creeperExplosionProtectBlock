@@ -1,6 +1,6 @@
 name: goodale
 version: '${version}'
-main: io.yangood.goodale.Goodale
+main: io.yangood.goodale.Main
 api-version: '1.20'
 prefix: [goodale]
 authors: [yangood]

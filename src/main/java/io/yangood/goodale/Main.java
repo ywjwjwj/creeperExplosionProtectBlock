@@ -7,7 +7,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Goodale extends JavaPlugin {
+public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
