@@ -1,19 +1,23 @@
 package io.yangood.goodale;
 
+import com.destroystokyo.paper.utils.PaperPluginLogger;
 import io.papermc.paper.plugin.configuration.PluginMeta;
 import io.yangood.goodale.listen.CustomListen;
 import io.yangood.goodale.utils.Util;
+import java.util.logging.Logger;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
+    private final Logger logger = PaperPluginLogger.getLogger(this.getName());
+
     @Override
     public void onEnable() {
-        Util.init(getServer());
+        Util.init(getServer(), getPluginMeta());
 
-        PluginMeta pluginMeta = getPluginMeta();
+        PluginMeta pluginMeta = Util.getPluginMeta();
         String pluginVersion = pluginMeta.getVersion();
         String serverVersion = getServer().getVersion();
         // Plugin startup logic
@@ -25,6 +29,17 @@ public final class Main extends JavaPlugin {
         );
 
         getServer().getPluginManager().registerEvents(CustomListen.CREEPER_LISTEN, this);
+
+        //try {
+        //    EntityType entityType = SimpleRegistry.ENTITY_TYPE.get(NamespacedKey.minecraft("creeper"));
+        //    Field clazz = entityType.getClass().getDeclaredField("clazz");
+        //    clazz.setAccessible(true);
+        //    //Object o = clazz.get(entityType);
+        //    clazz.set(entityType, MofeeCreeper.class);
+        //    //Class<? extends Entity> entityClass = entityType.getEntityClass();
+        //} catch (Exception e) {
+        //    logger.log(Level.SEVERE, e.getMessage());
+        //}
     }
 
     @Override

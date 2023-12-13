@@ -31,11 +31,11 @@ public class CreeperListen implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onBoom(@NotNull ExplosionPrimeEvent event) {
         Entity entity = event.getEntity();
-        // 如果是苦力怕爆炸
+        // if creeper boom!!
         if (entity instanceof CraftCreeper creeper) {
-            // 取消原始事件
+            // cancel original event
             event.setCancelled(true);
-            // 调用自定义爆炸事件
+            // call a custom explosion event
             Creeper handle = creeper.getHandle();
             explodeCreeper(event, handle);
         }
@@ -47,7 +47,7 @@ public class CreeperListen implements Listener {
         level.explode(creeper, creeper.getX(), creeper.getY(), creeper.getZ(), event.getRadius(), event.getFire(),
             ExplosionInteraction.NONE); // CraftBukkit
         creeper.discard();
-        spawnLingeringCloud(creeper);
+        //spawnLingeringCloud(creeper);
     }
 
     private void spawnLingeringCloud(Creeper creeper) {

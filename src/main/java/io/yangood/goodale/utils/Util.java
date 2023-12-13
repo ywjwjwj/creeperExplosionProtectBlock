@@ -1,8 +1,10 @@
 package io.yangood.goodale.utils;
 
+import io.papermc.paper.plugin.configuration.PluginMeta;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @ClassName: Util
@@ -15,14 +17,20 @@ public class Util {
 
     private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
     private static Server server;
+    private static PluginMeta pluginMeta;
 
 
-    public static void init(Server server) {
+    public static void init(Server server, @NotNull PluginMeta pluginMeta) {
         Util.server = server;
+        Util.pluginMeta = pluginMeta;
     }
 
     public static Server getServer() {
         return server;
+    }
+
+    public static PluginMeta getPluginMeta() {
+        return pluginMeta;
     }
 
     /**
