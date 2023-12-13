@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * @Date: 2023/12/06
  * @Version: 1.0
  */
-public class Util {
+public class Utils {
 
     private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
     private static Server server;
@@ -21,8 +21,8 @@ public class Util {
 
 
     public static void init(Server server, @NotNull PluginMeta pluginMeta) {
-        Util.server = server;
-        Util.pluginMeta = pluginMeta;
+        Utils.server = server;
+        Utils.pluginMeta = pluginMeta;
     }
 
     public static Server getServer() {
@@ -50,5 +50,4 @@ public class Util {
     public static String cbClass(String clazz) {
         return CRAFTBUKKIT_PACKAGE + "." + clazz;
     }
-
 }

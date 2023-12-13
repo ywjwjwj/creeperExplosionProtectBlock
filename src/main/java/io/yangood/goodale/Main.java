@@ -3,7 +3,7 @@ package io.yangood.goodale;
 import com.destroystokyo.paper.utils.PaperPluginLogger;
 import io.papermc.paper.plugin.configuration.PluginMeta;
 import io.yangood.goodale.listen.CustomListen;
-import io.yangood.goodale.utils.Util;
+import io.yangood.goodale.utils.Utils;
 import java.util.logging.Logger;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
@@ -15,9 +15,9 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Util.init(getServer(), getPluginMeta());
+        Utils.init(getServer(), getPluginMeta());
 
-        PluginMeta pluginMeta = Util.getPluginMeta();
+        PluginMeta pluginMeta = Utils.getPluginMeta();
         String pluginVersion = pluginMeta.getVersion();
         String serverVersion = getServer().getVersion();
         // Plugin startup logic
